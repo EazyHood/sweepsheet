@@ -4,6 +4,8 @@ Turn a cleanup voice note into counts you have actually reviewed. Use your regul
 
 **[Open SweepSheet](https://eazyhood.github.io/sweepsheet/)** · [Model test results](evidence/model-run.json) · [Test method and limitations](evidence/README.md)
 
+![SweepSheet after a real browser transcription and confirmation, using a clearly marked synthetic sample](docs/images/confirmed-desktop.jpg)
+
 Built October 7, 2026 for DEV's [Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05). This is a new project, not a fork of an earlier entry. No later-than-deadline changes currently exist. If changes are made after October 12, 2026 06:59 UTC, they will be documented here.
 
 ## Try it
