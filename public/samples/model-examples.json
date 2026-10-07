@@ -1,0 +1,154 @@
+[
+  {
+    "id": "01-clear",
+    "text": "I collected three plastic bottles and two cans.",
+    "observed": "I collected three plastic bottles and two cans.",
+    "seconds": 3.895,
+    "elapsedMs": 865,
+    "proposal": {
+      "counts": {
+        "plastic": 3,
+        "cans": 2,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": false,
+      "reason": "Suggested from the transcript. Check the audio before confirming."
+    }
+  },
+  {
+    "id": "02-several",
+    "text": "Four wrappers, six cigarette butts, and one glass bottle.",
+    "observed": "4 wrappers, 6 cigarette butts, and 1 glass bottle.",
+    "seconds": 5.275,
+    "elapsedMs": 725,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 4,
+        "butts": 6,
+        "glass": 1,
+        "other": 0
+      },
+      "blocked": false,
+      "reason": "Suggested from the transcript. Check the audio before confirming."
+    }
+  },
+  {
+    "id": "03-correction",
+    "text": "Make that two plastic bottles, not three.",
+    "observed": "Make that two plastic bottles. Not three.",
+    "seconds": 3.91,
+    "elapsedMs": 536,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": true,
+      "reason": "This note contains uncertainty, a correction, or an observation. Listen and enter the collected counts yourself."
+    }
+  },
+  {
+    "id": "04-uncertain",
+    "text": "Maybe four or five wrappers.",
+    "observed": "Maybe 4 or 5 rappers.",
+    "seconds": 2.76,
+    "elapsedMs": 676,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": true,
+      "reason": "This note contains uncertainty, a correction, or an observation. Listen and enter the collected counts yourself."
+    }
+  },
+  {
+    "id": "05-vague",
+    "text": "I picked up some cans.",
+    "observed": "I picked up some cans.",
+    "seconds": 2.41,
+    "elapsedMs": 564,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": true,
+      "reason": "This note contains uncertainty, a correction, or an observation. Listen and enter the collected counts yourself."
+    }
+  },
+  {
+    "id": "06-not-collected",
+    "text": "I saw six plastic bottles but did not collect them.",
+    "observed": "I saw six plastic bottles but did not collect them.",
+    "seconds": 4.095,
+    "elapsedMs": 672,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": true,
+      "reason": "This note contains uncertainty, a correction, or an observation. Listen and enter the collected counts yourself."
+    }
+  },
+  {
+    "id": "09-zero",
+    "text": "Zero glass bottles and two other items.",
+    "observed": "0 glass bottles and 2 other items.",
+    "seconds": 3.35,
+    "elapsedMs": 576,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 2
+      },
+      "blocked": false,
+      "reason": "Suggested from the transcript. Check the audio before confirming."
+    }
+  },
+  {
+    "id": "10-large",
+    "text": "Twenty three wrappers and twelve cans.",
+    "observed": "23 rappers and 12 kids.",
+    "seconds": 3.225,
+    "elapsedMs": 524,
+    "proposal": {
+      "counts": {
+        "plastic": 0,
+        "cans": 0,
+        "wrappers": 0,
+        "butts": 0,
+        "glass": 0,
+        "other": 0
+      },
+      "blocked": true,
+      "reason": "No unambiguous supported counts. Use exact numbers and material, such as “three plastic bottles”."
+    }
+  }
+]

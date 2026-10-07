@@ -1,0 +1,9 @@
+{
+  "name": "sweepsheet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite --host 127.0.0.1 --port 5181", "build": "vite build", "preview": "vite preview --host 127.0.0.1 --port 5181", "test": "node --test tests/*.test.js", "verify:model": "node scripts/verify-model.mjs" },
+  "dependencies": { "@huggingface/transformers": "3.8.1" },
+  "devDependencies": { "vite": "7.1.9" }
+}

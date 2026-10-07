@@ -1,0 +1,44 @@
+[
+  {
+    "id": "01-clear",
+    "text": "I collected three plastic bottles and two cans."
+  },
+  {
+    "id": "02-several",
+    "text": "Four wrappers, six cigarette butts, and one glass bottle."
+  },
+  {
+    "id": "03-correction",
+    "text": "Make that two plastic bottles, not three."
+  },
+  {
+    "id": "04-uncertain",
+    "text": "Maybe four or five wrappers."
+  },
+  {
+    "id": "05-vague",
+    "text": "I picked up some cans."
+  },
+  {
+    "id": "06-not-collected",
+    "text": "I saw six plastic bottles but did not collect them."
+  },
+  {
+    "id": "07-silence",
+    "text": "",
+    "fixture": "Three seconds of digital silence"
+  },
+  {
+    "id": "08-noise",
+    "text": "",
+    "fixture": "Three seconds of deterministic white noise; no speech"
+  },
+  {
+    "id": "09-zero",
+    "text": "Zero glass bottles and two other items."
+  },
+  {
+    "id": "10-large",
+    "text": "Twenty three wrappers and twelve cans."
+  }
+]
