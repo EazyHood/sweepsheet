@@ -39,7 +39,7 @@ export function confirmNote(note, counts, reason, now=new Date().toISOString()) 
   return { ...note, status:'confirmed', draftCounts:null, counts:{...counts}, history:[...(note.history||[]), { at:now, before:note.status==='confirmed'?note.counts:null, after:{...counts}, reason:reason.trim()||'Reviewed against the note' }] };
 }
 export function totals(notes) { const result=emptyCounts(); for(const note of notes.filter(n=>n.status==='confirmed')) for(const c of categories) result[c.id]+=note.counts[c.id]; return result; }
-export function csvCell(v) { let s=String(v??''); if(/^[=+\-@\t\r]/.test(s)) s="'"+s; return '"'+s.replaceAll('"','""')+'"'; }
+export function csvCell(v) { let s=String(v??''); if(/^\s*[=+\-@]/.test(s)||/^[\t\r\n]/.test(s)) s="'"+s; return '"'+s.replaceAll('"','""')+'"'; }
 export function exportCSV(session) {
   const header=['session','note','status','source','transcript',...categories.map(c=>c.label),'reviewed_at','revision_count'];
   const rows=session.notes.filter(n=>n.status==='confirmed').map(n=>[session.name,n.name,n.status,n.source,n.transcript,...categories.map(c=>n.counts[c.id]),n.history.at(-1).at,n.history.length]);
