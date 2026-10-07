@@ -11,9 +11,9 @@ async function save(){if(!db){notify('Browser storage is unavailable. Export you
 function active(){return session.notes.find(n=>n.id===selected);}
 function render(){
  $('#session-title').textContent=session.name;$('#note-count').textContent=session.notes.length;
- $('#demo').disabled=busy;$('#new-session').disabled=busy;$('#load-model').disabled=busy||modelReady;
+ $('#demo').disabled=busy;$('#new-session').disabled=busy;$('#load-model').disabled=busy||modelReady;$('#import-audio').disabled=busy;$('#rename').disabled=busy;
  $('#note-list').innerHTML=session.notes.map((n,i)=>`<button class="note-row ${n.id===selected?'selected':''} ${n.status}" data-id="${n.id}" aria-pressed="${n.id===selected}"><strong>${escape(n.name)}</strong><small><span class="dot" aria-hidden="true"></span>${n.status==='confirmed'?'Confirmed':n.status==='excluded'?'Excluded':'Needs review'} · ${n.source==='synthetic'?'synthetic example':'your audio'}</small></button>`).join('');
- $('#note-list').querySelectorAll('button').forEach(b=>b.onclick=()=>{selected=b.dataset.id;render();});
+ $('#note-list').querySelectorAll('button').forEach(b=>{b.disabled=busy;b.onclick=()=>{selected=b.dataset.id;render();};});
  const sums=totals(session.notes),confirmed=session.notes.filter(n=>n.status==='confirmed').length,pending=session.notes.filter(n=>n.status==='pending').length;
  $('#grand-total').textContent=Object.values(sums).reduce((a,b)=>a+b,0);
  $('#totals').innerHTML=categories.map(c=>`<div class="total-row"><span>${c.label}</span><b>${sums[c.id]}</b></div>`).join('');
@@ -38,6 +38,8 @@ function render(){
  <p class="confirm-help">Listen first. Confirming ${reviewed?'replaces this note’s previous counts':'adds only these numbers to the notebook'}.</p>
  ${note.history?.length?`<details class="history"><summary>Review history · ${note.history.length} ${note.history.length===1?'change':'changes'}</summary>${note.history.map(h=>`<p><strong>${escape(new Date(h.at).toLocaleString())}</strong><br>${escape(h.reason)}<br>${h.after?categories.filter(c=>h.after[c.id]).map(c=>`${h.after[c.id]} ${c.label.toLowerCase()}`).join(', ')||'Zero items':'Excluded from counts'}</p>`).join('')}</details>`:''}`;
  $('#transcribe').onclick=()=>transcribe(note);
+ $('#review-panel').setAttribute('aria-busy',String(busy));
+ if(busy) $('#review-panel').querySelectorAll('button,input,textarea').forEach(el=>el.disabled=true);
  for(const c of categories) $(`#count-${c.id}`).onchange=async()=>{note.draftCounts=Object.fromEntries(categories.map(c=>[c.id,$(`#count-${c.id}`).value===''?null:Number($(`#count-${c.id}`).value)]));await save();};
  $('#transcript').onchange=async e=>{note.transcript=e.target.value;note.transcription='manual';note.draftCounts=null;await save();};
  $('#suggest').onclick=async()=>{note.transcript=$('#transcript').value;note.draftCounts=parseTranscript(note.transcript).counts;await save();render();notify('Suggestions updated. Nothing has been added to the total.');};
