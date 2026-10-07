@@ -22,7 +22,7 @@ function render(){
  $('#session-title').textContent=session.name;$('#note-count').textContent=session.notes.length;
  $('#demo').disabled=busy;$('#new-session').disabled=busy;$('#load-model').disabled=busy||modelReady;$('#import-audio').disabled=busy;$('#rename').disabled=busy;
  $('#note-list').innerHTML=session.notes.map((n,i)=>`<button class="note-row ${n.id===selected?'selected':''} ${n.status}" data-id="${n.id}" aria-pressed="${n.id===selected}"><strong>${escape(n.name)}</strong><small><span class="dot" aria-hidden="true"></span>${n.status==='confirmed'?'Confirmed':n.status==='excluded'?'Excluded':'Needs review'} · ${n.source==='synthetic'?'synthetic example':'your audio'}</small></button>`).join('');
- $('#note-list').querySelectorAll('button').forEach(b=>{b.disabled=busy;b.onclick=()=>{selected=b.dataset.id;render();};});
+ $('#note-list').querySelectorAll('button').forEach(b=>{b.disabled=busy;b.onclick=()=>{selected=b.dataset.id;render();notify(active()?.status==='confirmed'?'This note is confirmed. Changes need a correction reason.':'This note has not been confirmed. Listen and review its counts.');};});
  const sums=totals(session.notes),confirmed=session.notes.filter(n=>n.status==='confirmed').length,pending=session.notes.filter(n=>n.status==='pending').length;
  $('#grand-total').textContent=Object.values(sums).reduce((a,b)=>a+b,0);
  $('#totals').innerHTML=categories.map(c=>`<div class="total-row"><span>${c.label}</span><b>${sums[c.id]}</b></div>`).join('');
